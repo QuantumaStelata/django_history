@@ -3,13 +3,13 @@ from django.db import models
 from django.db.models.signals import post_delete, post_init, post_save
 from django.forms import model_to_dict
 
-from history.models import History
-from history.settings import (
+from django_history.models import History
+from django_history.settings import (
     HISTORY_ALLOW_CELERY, HISTORY_GET_CURRENT_USER,
     HISTORY_SOFT_DELETE_FIELDS,
 )
-from history.tasks import history as tasks
-from history.utils import get_instance_changes
+from django_history.tasks import history as tasks
+from django_history.utils import get_instance_changes
 
 
 class HistoryMixin(models.Model):

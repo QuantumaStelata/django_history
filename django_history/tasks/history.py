@@ -1,6 +1,6 @@
 from celery import current_app
 
-from history.models import History
+from django_history.models import History
 
 
 @current_app.task(serializer='pickle')

@@ -5,8 +5,8 @@ import django.utils.timezone
 from django.conf import settings
 from django.db import migrations, models
 
-import history.mixins.encoders
-import history.settings.history
+import django_history.mixins.encoders
+import django_history.settings.history
 
 
 class Migration(migrations.Migration):
@@ -25,11 +25,11 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('state', models.CharField(choices=[('created', 'Created'), ('updated', 'Updated'), ('m2m_updated', 'M2M Updated'), ('deleted', 'Deleted')], default='created', max_length=12)),
                 ('object_id', models.TextField()),
-                ('pre_instance', models.JSONField(encoder=history.mixins.encoders.JSONEncoder, null=True)),
-                ('post_instance', models.JSONField(encoder=history.mixins.encoders.JSONEncoder, null=True)),
-                ('instance_changes', models.JSONField(encoder=history.mixins.encoders.JSONEncoder, null=True)),
+                ('pre_instance', models.JSONField(encoder=django_history.mixins.encoders.JSONEncoder, null=True)),
+                ('post_instance', models.JSONField(encoder=django_history.mixins.encoders.JSONEncoder, null=True)),
+                ('instance_changes', models.JSONField(encoder=django_history.mixins.encoders.JSONEncoder, null=True)),
                 ('created_at', models.DateTimeField(default=django.utils.timezone.now)),
-                ('author', models.ForeignKey(default=history.settings.history.current_user_none, null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL)),
+                ('author', models.ForeignKey(default=django_history.settings.history.current_user_none, null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL)),
                 ('content_type', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='contenttypes.contenttype')),
             ],
         ),

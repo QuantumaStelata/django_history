@@ -4,8 +4,8 @@ from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.utils import timezone
 
-from history.mixins.encoders import JSONEncoder
-from history.settings import HISTORY_GET_CURRENT_USER
+from django_history.mixins.encoders import JSONEncoder
+from django_history.settings import HISTORY_GET_CURRENT_USER
 
 
 class History(models.Model):

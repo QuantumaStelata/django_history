@@ -1,9 +1,9 @@
 from setuptools import setup
-import history
+import django_history
 
 setup(
     name='django-history',
-    version=history.___version__,
+    version=django_history.___version__,
     author='QuantumaStelata',
     author_email='quantumastelata@gmail.com',
 )

@@ -3,7 +3,7 @@ from django.apps import AppConfig
 
 class HistoryConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'history'
+    name = 'django_history'
 
     def ready(self):
         from django.db.models.signals import (
@@ -11,7 +11,7 @@ class HistoryConfig(AppConfig):
             post_init, post_save,
         )
 
-        from history.mixins import HistoryMixin
+        from django_history.mixins import HistoryMixin
 
         for cls in self.all_subclasses(HistoryMixin):
             post_init.connect(cls.history_post_init, sender=cls)
