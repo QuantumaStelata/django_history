@@ -1,6 +1,6 @@
-# django-history
+# django_history
 
-Django-history - a module for tracking changes to model instances.
+Django_history - a module for tracking changes to model instances.
 
 # Install
 
